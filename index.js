@@ -141,7 +141,7 @@ async function run() {
         })
 
         // order stat api 
-        app.get('/order-stat', async (req, res) => {
+        app.get('/order-stat',verifyToken,verifyAdmin, async (req, res) => {
 
             const result = await paymentsCollection.aggregate([
                 {
